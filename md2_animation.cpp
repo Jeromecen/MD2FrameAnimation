@@ -8,7 +8,7 @@ vec3_t   CMD2Animation::anorms[ NUMVERTEXNORMALS ] = {
 #include    "anorms.h"
 };
 // precalculated dot product results
-/////////////////////¹âÕÕ³£Á¿£¬ÔÝÊ±Ã»ÓÃ£¬Ô¤Áô¸Ä½ø£¬ÒòÎªÃ»ÓÐÕÒµ½anorms_dotsÖÐµÄ¹âÕÕÔ¤¼ÆËã¶¥µã·¨ÏòÁ¿ºÍÖ¸Ïò¹âÔ´µÄ±í°üÀ¨Quake IIÖÐ/////
+/////////////////////å…‰ç…§å¸¸é‡ï¼Œæš‚æ—¶æ²¡ç”¨ï¼Œé¢„ç•™æ”¹è¿›ï¼Œå› ä¸ºæ²¡æœ‰æ‰¾åˆ°anorms_dotsä¸­çš„å…‰ç…§é¢„è®¡ç®—é¡¶ç‚¹æ³•å‘é‡å’ŒæŒ‡å‘å…‰æºçš„è¡¨åŒ…æ‹¬Quake IIä¸­/////
 //float    CMD2Animation::anorms_dots[ SHADEDOT_QUANT ][256] = {
 //#include    "anormtab.h"
 //};
@@ -23,7 +23,7 @@ vec3_t   CMD2Animation::anorms[ NUMVERTEXNORMALS ] = {
 // ----------------------------------------------
 // initialize the 21 MD2 model animations.
 // ---------------------------------------------
-// animation list£¬Êµ¼ÊÉè¼ÆÖÐ»á·ÅÖÃµ½²ß»®csv±íÖÐ,md2ÖÐÒ²ÊÇ¹Ì¶¨µÄ
+// animation listï¼Œå®žé™…è®¾è®¡ä¸­ä¼šæ”¾ç½®åˆ°ç­–åˆ’csvè¡¨ä¸­,md2ä¸­ä¹Ÿæ˜¯å›ºå®šçš„
 anim_t CMD2Animation::animlist[ 21 ] = 
 {
 	// first, last, keyframe fps
@@ -91,17 +91,17 @@ void  CMD2Animation::Release()
 // ----------------------------------------------
 //void CMD2Animation::ProcessLighting( void )
 //{
-//	// ÓÃ»·¾³¹âÇ¿¶ÈºÍÒõÓ°Ç¿¶È£¬À´Ëã³ö¹âÕÕÇ¿¶È
+//	// ç”¨çŽ¯å¢ƒå…‰å¼ºåº¦å’Œé˜´å½±å¼ºåº¦ï¼Œæ¥ç®—å‡ºå…‰ç…§å¼ºåº¦
 //	float lightvar = (float)((g_shadelight + g_ambientlight)/256.0);
 //
-//	// ¹âÕÕÇ¿¶È³ËÒÔ¹âÑÕÉ«£¬µÃµ½È«¾Ö¹âÕÕµÄÑÕÉ«
+//	// å…‰ç…§å¼ºåº¦ä¹˜ä»¥å…‰é¢œè‰²ï¼Œå¾—åˆ°å…¨å±€å…‰ç…§çš„é¢œè‰²
 //	lcolor[0] = g_lightcolor[0] * lightvar;
 //	lcolor[1] = g_lightcolor[1] * lightvar;
 //	lcolor[2] = g_lightcolor[2] * lightvar;
 //	// The formula is quite obscure, don't worry about it, it works fine it's all we want ;-) 
 //	// It comes from the Quake II's source code.
-//	// anorms_dots´æ´¢¶¥µã·¨ÏòÁ¿ºÍ¹âÔ´µÄµã»ýÒ²¾ÍÊÇcos½Ç¶ÈÖµÔ½´óÏà¹ØÐÔÔ½Ç¿
-//	// ÕâÀïÏÂ±êÏßÐÔ²åÖµ£¬½Ç¶ÈÔ½´óÈ¡µÃÔ½´óµÄÈ¡µÃÏÂ±êÔ½´ó£¬µ«ÊÇ´æ´¢µÄ½Ç¶ÈÖµÈ·ÊÇÓÉanorms_dotsÈ·¶¨
+//	// anorms_dotså­˜å‚¨é¡¶ç‚¹æ³•å‘é‡å’Œå…‰æºçš„ç‚¹ç§¯ä¹Ÿå°±æ˜¯cosè§’åº¦å€¼è¶Šå¤§ç›¸å…³æ€§è¶Šå¼º
+//	// è¿™é‡Œä¸‹æ ‡çº¿æ€§æ’å€¼ï¼Œè§’åº¦è¶Šå¤§å–å¾—è¶Šå¤§çš„å–å¾—ä¸‹æ ‡è¶Šå¤§ï¼Œä½†æ˜¯å­˜å‚¨çš„è§’åº¦å€¼ç¡®æ˜¯ç”±anorms_dotsç¡®å®š
 //	//shadedots = anorms_dots[ ((int)(g_angle * (SHADEDOT_QUANT / 360.0))) & (SHADEDOT_QUANT - 1) ];
 //}
 
@@ -121,7 +121,7 @@ void CMD2Animation::SetAnim( int type, float curTime/* = 0.0f*/)
 	m_anim.type         = type;
 	m_anim.old_time     = curTime;
 	m_secondsPerKeyFrame = 1.0 / float(m_anim.fps);
-	// ¶¯»­²åÖµÊ±ºòµÄÁÙ½ç±ÜÃâ²»¶ÏµÄ²åÖµ
+	// åŠ¨ç”»æ’å€¼æ—¶å€™çš„ä¸´ç•Œé¿å…ä¸æ–­çš„æ’å€¼
 	m_scaleLimit = m_secondsPerFrame / m_secondsPerKeyFrame;
 
 	m_anim.curr_interpol = 0.0f;
@@ -141,13 +141,15 @@ void CMD2Animation::SetFPS(int nFps/* = 60*/)
 // Animate() - calculate the current frame, next
 // frame and interpolation percent.
 // ----------------------------------------------
+// è¿™é‡Œæ˜¯æœ¬é¡¹ç›®çš„æ”¹è¿›ç‰¹è‰²ï¼Œå®žçŽ°åœ¨æŒ‡å®šçš„1/FPSå†…æ‰è¿›è¡Œæ’å€¼è®¡ç®—ã€‚
 void CMD2Animation::Animate( float time )
 {
 	m_anim.curr_time = time;
 
 	// calculate current and next frames
-	// ¼ÇÂ¼Á÷ÊÅÊ±¼äÀ´¾ö¶¨Ö¡ÊýµÝÔö
+	// è®°å½•æµé€æ—¶é—´æ¥å†³å®šå¸§æ•°é€’å¢ž
 	float fFlyTime = m_anim.curr_time - m_anim.old_time;
+	// å…³é”®å¸§ä¹‹é—´è·³å¸§
 	if( fFlyTime > m_secondsPerKeyFrame )
 	{
 		m_anim.curr_frame = m_anim.next_frame;
@@ -158,19 +160,21 @@ void CMD2Animation::Animate( float time )
 				m_anim.next_frame = m_anim.startframe;
 		}
 		m_anim.curr_interpol = 0.0f;
+		// è®©åŽé¢è¿›å…¥æ’å€¼æ’­æ”¾ç¬¬ä¸€å¸§ï¼ŒåŒæ—¶åˆå§‹åŒ–m_anim.pre_interpol
 		m_anim.pre_interpol = -m_scaleLimit;
 		m_anim.old_time = m_anim.curr_time;
 	}
+	// å…³é”®å¸§å†…æ’å¸§
 	else
 	{
 		float fScale = fFlyTime / m_secondsPerKeyFrame;
-		// irrlichtÒýÇæµÄÐòÁÐÖ¡²åÖµ·½Ê½£¬ÒòÎª¼ÆËã¾«¶ÈÎÊÌâ»¹ÊÇ»áÌ«¹ýÉúÓ²
+		// irrlichtå¼•æ“Žçš„åºåˆ—å¸§æ’å€¼æ–¹å¼ï¼Œå› ä¸ºè®¡ç®—ç²¾åº¦é—®é¢˜è¿˜æ˜¯ä¼šå¤ªè¿‡ç”Ÿç¡¬
 		/*int nBigScale = int(fScale * 10000.0f);
 		m_anim.curr_interpol = float( 1.0f * (nBigScale % 4) / 4.0f );*/
 		m_anim.curr_interpol = fScale;
 	}
 
-	// µ±Ö¡Êý³¬¹ýÊ±ºò²Å½øÐÐ²åÖµ£¬±ÜÃâÆµ·±²åÖµ
+	// å½“å¸§æ•°è¶…è¿‡1/FPSè§„å®šæ—¶é—´æ—¶å€™ï¼Œæ‰è¿›è¡Œæ’å€¼ï¼Œé¿å…é¢‘ç¹æ’å€¼
 	if( m_anim.curr_interpol - m_anim.pre_interpol >= m_scaleLimit )
 	{
 		Interpolate();
@@ -201,10 +205,10 @@ void CMD2Animation::Interpolate()
 	vec3_t next_normal;
 	for( int i = 0; i < m_pMeshLoader.GetVerticesPerFrame() ; i++ )
 	{
-		// ÐòÁÐÖ¡¶¯»­ºËÐÄËã·¨,Á½Ö¡¼ä²åÖµ¹«Ê½£º
+		// åºåˆ—å¸§åŠ¨ç”»æ ¸å¿ƒç®—æ³•,ä¸¤å¸§é—´æ’å€¼å…¬å¼ï¼š
 		// Xinterpolated = Xinital + InterpolationPercent * (Xfinal - Xinital)
-		// m_anim.curr_interpolµÈÓÚ0Ê±ºò£¬µÃµ½µÄÒ»Ö¡¾ÍÊÇµÄ¶¥µãÊý¾Ý¾ÍÊÇµÚÒ»Ö¡Í¼Æ¬£¬ÖÐ¼äÖ¡ÊÇÎÞÇî²åÖµµÄ
-		// ÕâÀï²ÅÏÔÊ¾ÁËÊµ¼ÊµÄÖ¡Êý¡£
+		// m_anim.curr_interpolç­‰äºŽ0æ—¶å€™ï¼Œå¾—åˆ°çš„ä¸€å¸§å°±æ˜¯çš„é¡¶ç‚¹æ•°æ®å°±æ˜¯ç¬¬ä¸€å¸§å›¾ç‰‡ï¼Œä¸­é—´å¸§æ˜¯æ— ç©·æ’å€¼çš„
+		// è¿™é‡Œæ‰æ˜¾ç¤ºäº†å®žé™…çš„å¸§æ•°ã€‚
 		m_pMeshLoader.GetCurFrameMeshData()->m_pos[i][0] = (curr_v[i][0] + m_anim.curr_interpol * (next_v[i][0] - curr_v[i][0])) * m_scale;
 		m_pMeshLoader.GetCurFrameMeshData()->m_pos[i][1] = (curr_v[i][1] + m_anim.curr_interpol * (next_v[i][1] - curr_v[i][1])) * m_scale;
 		m_pMeshLoader.GetCurFrameMeshData()->m_pos[i][2] = (curr_v[i][2] + m_anim.curr_interpol * (next_v[i][2] - curr_v[i][2])) * m_scale;
