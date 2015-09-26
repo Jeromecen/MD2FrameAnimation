@@ -10,8 +10,8 @@ Description: Direct3D 3D序列帧动画原理和实例
 1.运行环境：
 1)Direct3D SDK
 2)VS2008以上版本
-3)直接打开.sln运行即可，有编译不过的可以联系我，Email: JeromeCen@163.com
-使用：编译成功后，可以定位到代码：pAnimationObj->SetAnim 修改里面的动作类型，观看不同的动作效果。
+3)直接打开.sln运行即可，有编译不过的可以联系我，Email: JeromeCen@hotmail.com,qq:1021900404
+使用：编译成功后，按enter键即可实现不同动作的切换。
 
 2.建议：
 对MD2格式文件不熟悉的读者，先阅读：
